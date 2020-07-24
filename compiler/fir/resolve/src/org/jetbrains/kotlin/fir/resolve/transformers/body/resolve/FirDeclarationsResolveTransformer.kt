@@ -586,8 +586,8 @@ open class FirDeclarationsResolveTransformer(transformer: FirBodyResolveTransfor
                 }
             }
 
-            val graph = dataFlowAnalyzer.exitFunction(constructor)
-            constructor.transformControlFlowGraphReference(ControlFlowGraphReferenceTransformer, graph)
+            val graphRef = dataFlowAnalyzer.exitFunction(constructor)
+            constructor.replaceControlFlowGraphReference(graphRef)
             constructor.compose()
         }
     }
