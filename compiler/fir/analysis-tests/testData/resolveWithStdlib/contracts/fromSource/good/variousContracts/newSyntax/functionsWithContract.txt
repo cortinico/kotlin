@@ -1,0 +1,40 @@
+FILE: functionWithContract.kt
+    public final fun foo(arg: R|kotlin/Any?|): R|kotlin/Unit|
+        [R|Contract description]
+         <
+
+            [Effect declaration] <
+                Returns(WILDCARD) -> arg != null
+            >
+        >
+     {
+        R|kotlin/require|(!=(R|<local>/arg|, Null(null)))
+    }
+    public final fun bar(s: R|kotlin/String?|, block: R|() -> kotlin/Unit|): R|kotlin/Unit|
+        [R|Contract description]
+         <
+
+            [Effect declaration] <
+                Returns(WILDCARD) -> s != null
+            >
+            ,
+
+            [Effect declaration] <
+                CallsInPlace(block, EXACTLY_ONCE)
+            >
+        >
+     {
+        R|kotlin/require|(!=(R|<local>/s|, Null(null)))
+        R|<local>/block|.R|FakeOverride<kotlin/Function0.invoke: R|kotlin/Unit|>|()
+    }
+    public final fun test1(arg: R|kotlin/Any?|): R|kotlin/Boolean|
+        [R|Contract description]
+         <
+
+            [Effect declaration] <
+                Returns(TRUE) -> arg != null
+            >
+        >
+     {
+        R|kotlin/require|(!=(R|<local>/arg|, Null(null)))
+    }
